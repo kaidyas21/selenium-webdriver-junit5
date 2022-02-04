@@ -10,10 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HelloSeleniumTest {
 
-    private ChromeDriver chromeDriver;
+    private static ChromeDriver chromeDriver;
+
     @BeforeAll
-    public void setup(){
-        System.setProperty("webdriver.chrome.driver" ,"C:\\Users\\yasmine.kaid\\chrome drivers\\98\\chromedriver_win32");
+    public static void setup(){
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\yasmine.kaid\\chrome\\98\\chromedriver_win32\\chromedriver.exe");
         chromeDriver = new ChromeDriver();
     }
 
@@ -23,11 +24,11 @@ public class HelloSeleniumTest {
         chromeDriver.manage().window().setSize(new Dimension(891, 824));
         chromeDriver.findElement(By.name("q")).sendKeys("behariour");
         chromeDriver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-        chromeDriver.findElement(By.cssSelector(".g:nth-child(3) .LC20lb")).click();
+
     }
 
     @AfterAll
-    public void cleanup(){
+    public static void cleanup(){
         chromeDriver.close();;
     }
 
